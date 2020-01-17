@@ -1,0 +1,9 @@
+mkdir automacao01
+cd automacao01
+git init
+git add .
+git commit
+git push origin master
+git checkout -b trabalho
+git commit
+git push origin master
