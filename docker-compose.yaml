@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: ngix-container
+    volume: /opt/meunginx
+    restart: always
+    ports:
+      - 9090:9090
+    
