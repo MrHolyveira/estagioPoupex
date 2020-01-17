@@ -1,0 +1,25 @@
+#Com o script em shell efetue o dump COMPLETO do banco de dados para um arquivo no caminhho /opt/bancodump/backup.sql:
+	mysqldump -u mateus_oliveira -p banco_mariadb > /opt/bancodump/backup.sql
+
+#Com o script em Python movimente o arquivo backup.sql para o caminho /opt/bancobackup/ e este compactado na extensão tar.gz:
+
+import shutil
+import tarfile
+import os.path
+
+def make_tarfile(output, diretorio):
+    with tarfile.open(output, "w:gz") as tar:
+        tar.add(diretorio, arcname=os.path.basename(diretorio))
+
+
+diretorio = '/opt/bancobackup/'
+output = 'bancobackup.tar.gz'
+
+
+shutil.move('/opt/bancodump/backup.sql', diretorio)
+
+make_tarfile(output, diretorio)
+
+
+
+
