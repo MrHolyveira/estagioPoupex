@@ -1,0 +1,3 @@
+FROM ubuntu:16.04
+MAINTAINER mateusoliveirap@hotmail.com
+RUN apt-get update && apt-get install -y apache2 && apt-get clean && docker run -dit --name servidor-apache -p 88:88 my-apache2
