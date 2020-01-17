@@ -1,0 +1,17 @@
+#Verificar quais os containers rodando:
+	docker ps -f "status=running"
+
+#Verificar quais os containers parados:
+	docker ps  -f "status=exited"
+
+#Verificar quais os volumes existentes:
+	docker volume ls
+
+#Excluir APENAS os containers parados:
+	docker rm $(docker ps -a -q)
+
+#Excluir APENAS os volumes não utilizados:
+	docker volume prune-f
+
+#Criar um volume com o nome volume-meu-primeiro-nome
+	docker volume create --name volume-meu-primeiro-nome
