@@ -1,0 +1,19 @@
+- hosts: localhost
+  remote_user: root
+  tasks:
+      - name: Desabilitar o firewall
+        command: service iptables stop
+
+      - name: Alterar o timezone do sistema para São Paulo
+        timezone: 
+          name: America/Sao_Paulo
+
+      - name: Iniciar o NTPD
+        command: service ntpd start
+
+      - name: Criar um grupo de nome poupex
+        command: addgroup poupex
+
+      - name: Criar um usuário de nome devops ao qual faz parte do grupo poupex
+        command: adduser devops && adduser devops poupex
+
